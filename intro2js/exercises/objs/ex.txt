@@ -1,0 +1,18 @@
+1.
+person.name
+OR
+person['name']
+
+2.
+JS coerces non-str keys to strs (if possible), so these are all valid keys
+    1
+    '1'
+    undefined
+    'hello world'
+    true
+    'true'
+
+8.
+console.log(foo.a); //-> 'hi'; foo.a is re-assigned in bar, mutating foo
+console.log(qux); //-> 'hello'; bar doesn't rtn anything, and the value of qux is unchanged by bar (argument2 is just a local var w/i bar, and Strings are immutable anyway)
+

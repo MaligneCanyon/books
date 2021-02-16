@@ -1,0 +1,52 @@
+1.
+'John' + ' ' + 'Doe' //=> 'John Doe'
+
+3.
+String       'true'
+Boolean      false
+Number       1.5
+Number       2
+Undefined    undefined
+Object       { foo: 'bar' }
+
+4.
+statement    var foo;
+expression   foo = 5;
+expression   foo;
+
+5.
+'+' is used for concatonation when 1 or both operands are a str;
+numeric operands are implicity coerced to String
+
+6.
+console.log(Number('5') + 10);
+
+7.
+console.log(`The value of 5 + 10 is ${Number('5') + 10}.`);
+
+8.
+No, //=> undefined
+
+9.
+let names = ['asta', 'butterscotch', 'pudding', 'neptune', 'darwin'];
+
+10.
+let pets = {
+  asta:          'dog',
+  butterscotch:  'cat',
+  pudding:       'cat',
+  neptune:       'fish',
+  darwin:        'lizard',
+}
+
+11.
+false
+
+12.
+3
+
+13.
+true
+'1' is interpreted as being less than '9' (evaluated lexicographically)
+
+

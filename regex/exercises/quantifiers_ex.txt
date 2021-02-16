@@ -1,0 +1,46 @@
+1.
+/\bb[a-z]*e\b/
+
+2.
+/^.*\?$/
+
+/\?$/ # this only matches the '?' (not the entire line)
+
+3.
+/^.+\?$/
+
+4.
+/^https?:\/\/\S*$/
+
+5.
+/^\s*https?:\/\/\S*\s*$/
+
+6.
+/\bhttps?:\/\/\S*/
+
+7.
+/\b([a-z]*i){3,}[a-z]*\b/i
+
+8.
+/\S+$/
+or
+/\b\S+$/
+
+9.
+/^,(\d+,){3,6}$/
+or
+/^(,\d+){3,6},$/
+
+10.
+/^(\d+,){2,5}\d+$/
+
+11.
+/(^(\d+,){2}\d+$)|(^(\d+,){5,}\d+$)/
+
+
+12.
+/<h1>.*?<\/h1>/ # '?' is the lazy match qualifier
+or
+/<h([1-5])>.*?<\/h\1>/ # for heading sizes 1..5; the final '1' specs a capture group
+
+

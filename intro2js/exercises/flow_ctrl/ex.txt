@@ -1,0 +1,31 @@
+1.
+- remember that
+  - short-circuiting stops evaluation
+  - when using && and ||, the rtn value is the value of the last-evaluated operand
+F false || (true && false);
+T true || (1 + 2);
+3 (1 + 2) || true;
+3 true && (1 + 2);
+F false && (1 + 2);
+T (1 + 2) && true;
+F (32 * 4) >= 129;
+F false !== !true;
+F true === 4;
+T false === (847 === '847');
+F false === (847 == '847');
+T (!true || (!(100 / 5) === 20) || ((328 / 4) === 82)) || false;
+
+4.
+because no 'break' statements are present, execution falls thru to the next case statement, so the code logs
+'Product2'
+'Product3'
+'Product not found!'
+
+5.
+if foo() return 'bar';
+return qux();
+
+6.
+since [] is considered to be a truthy value, the code logs 
+'Not Empty'
+

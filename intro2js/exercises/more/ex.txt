@@ -1,0 +1,32 @@
+1.
+- logs [1, 4, 3]
+- assignment of an arr elem mutates the arr; array2 still pts to that same Array obj
+
+2.
+- 'greeting' is not def'd
+- there is an err in exercise2.js at line 4, char 15, in the 'hello' fn
+- the err is w/i an anonymous fn def; the fn is called at line 13, char 1
+
+3.
+console.log(Math.sqrt(37));
+
+5.
+function doSomething(string) {
+  return string.split(' ').reverse().map((value) => value.length);
+}
+
+- the fn takes a str as an arg
+- it then
+  - splits the str into an arr of 'words' (splits on a space char)
+  - reverses the arr
+  - creates a new arr, replacing each word by the num of chars in the word (the word 'length')
+  - returns the new arr of word lengths
+
+7.
+- exeception handling is the handling of errs in a program which would otherwise cause the prog exec to halt
+- errs are handled by code to trap a potential err, print or log a msg, and allow exec to continue
+
+from the solution:
+- a process that deals with errs in a manageable and predictable manner
+- in JS, it uses the try/catch statement to catch exceptions raised by code in the try block
+

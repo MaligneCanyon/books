@@ -1,0 +1,11 @@
+ex1
+SELECT customer_name FROM orders;
+
+ex2
+SELECT * FROM orders WHERE drink = 'Chocolate Shake';
+
+ex3
+SELECT burger, side, drink FROM orders WHERE id = 2;
+
+ex4
+SELECT customer_name FROM orders WHERE side = 'Onion Rings';

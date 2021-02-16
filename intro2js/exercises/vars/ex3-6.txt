@@ -1,0 +1,12 @@
+3.
+produces a ReferenceError; var foo is out-of-scope when passed to console.log()
+
+4.
+greets Victor, then produces a TypeError; you cannot reassign a value to a const
+
+5.
+outputs 'bar'; 'foo' is first scoped (globally) before the blk, and is therefore avail after the blk; rescoping w/i the blk is local to the blk itself; the two 'foo's are separate entities
+
+6.
+as per #5
+

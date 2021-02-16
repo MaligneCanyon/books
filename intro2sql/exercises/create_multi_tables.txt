@@ -1,0 +1,166 @@
+ex1
+\c encyclopedia
+# a one-to-many relationship exists between 'countries' and 'continents';
+# a country can belong to only ONE CONTINENT; a continent can contain MANY COUNTRIES
+
+CREATE TABLE continents (
+  id serial PRIMARY KEY,
+  continent_name varchar(50),
+);
+
+ALTER TABLE countries DROP COLUMN continents;
+ALTER TABLE countries ADD COLUMN continent_id integer;
+ALTER TABLE countries ADD FOREIGN KEY (continent_id) REFERENCES continents(id);
+
+# we could add 'ON DELETE CASCADE' to the FOREIGN KEY statement, but do we really want 
+# to delete the country just because we no longer want to track the continent info ?
+
+
+ex2
+# must insert continent data first
+# shouldn't spec the id col since it's def'd as serial in both tables ...
+# ... but heaven help you if you make a mistake (and countries.continent_id doesn't match continents.id as expected)
+
+INSERT INTO continents (continent_name) VALUES
+  ('Africa'),
+  ('Asia'),
+  ('Europe'),
+  ('North America'),
+  ('South America');
+
+INSERT INTO countries (name, capital, population, continent_id) VALUES
+  ('Brazil', 'Brasilia', 208385000, 5),
+  ('Egypt', 'Cairo', 96308900, 1),
+  ('France', 'Paris', 67158000, 3),
+  ('Germany', 'Berlin', 82349400, 3),
+  ('Japan', 'Tokyo', 126672000, 2),
+  ('USA', 'Washington D.C.', 325365189, 4);
+
+
+ex3
+# a one-to-many relationship exists between 'singers' and 'albums';
+# an album can belong to only ONE SINGER; a singer can produce MANY ALBUMS
+
+#ALTER TABLE singers ADD CONSTRAINT unique_id UNIQUE (id); # although this works ...
+ALTER TABLE singers ADD PRIMARY KEY (id); # ... this is more consistent w/ the book description
+# if a singer is deleted, his/her albums should also be deleted
+
+CREATE TABLE albums (
+  id serial PRIMARY KEY,
+  name varchar(100),
+  released date,
+  genre varchar(100),
+  label varchar(100),
+  singer_id int NOT NULL,
+  FOREIGN KEY (singer_id) REFERENCES singers(id) ON DELETE CASCADE
+);
+
+INSERT INTO albums (singer_id, name, released, genre, label) VALUES
+  (1, 'Born to Run', 'Aug-25-1975', 'Rock and roll', 'Columbia'),
+  (7, 'Purple Rain', 'Jun-25-1984', 'Pop, R&B, Rock', 'Warner Bros'),
+  (1, 'Born in the USA', 'Jun-04-1984', 'Rock and roll, pop', 'Columbia'),
+  (6, 'Madonna', 'Jul-27-1983', 'Dance-pop, post-disco', 'Warner Bros'),
+  (6, 'True Blue', 'Jun-30-1986', 'Dance-pop, Pop', 'Warner Bros'),
+  (8, 'Elvis', 'Oct-19-1956', 'Rock and roll, Rhythm and Blues', 'RCA Victor'),
+  (7, 'Sign o'' the Times', 'Mar-30-1987', 'Pop, R&B, Rock, Funk', 'Paisley Park, Warner Bros'),
+  (8, 'G.I. Blues', 'Oct-01-1960', 'Rock and roll, Pop', 'RCA Victor')
+;
+
+
+ex4
+# a one-to-one relationship exists between 'customers' and 'email_addresses';
+# an email address belongs to only ONE CUSTOMER; a customer provides only ONE EMAIL ADDRESS
+# in reality, customers may have multiple email addresses
+
+CREATE TABLE customers (
+  id serial PRIMARY KEY,
+  name varchar(100)
+);
+
+CREATE TABLE email (
+  id integer PRIMARY KEY,
+  address varchar(50),
+  FOREIGN KEY (id) REFERENCES customers(id) ON DELETE CASCADE
+);
+
+or
+CREATE TABLE email (
+  id int PRIMARY KEY REFERENCES customers(id) ON DELETE CASCADE
+  address varchar(50)
+);
+
+INSERT INTO customers (name) VALUES
+  ('Natasha O''Shea'),
+  ('James Bergman'),
+  ('Aaron Muller')
+;
+
+INSERT INTO email (id, address) VALUES
+  (1, 'natasha@osheafamily.com'),
+  (2, 'james1998@email.com'),
+  (3, NULL) -- this one is n/r
+;
+
+
+ex5
+# is it in any way useful to prefix col names in the products table w/ 'product_' ?
+CREATE TABLE products (
+  id serial PRIMARY KEY,
+  name varchar(50),
+  cost decimal(4,2),
+  type varchar(20),
+  loyalty_points int DEFAULT 0
+);
+
+INSERT INTO products (name, cost, type, loyalty_points) VALUES
+  ('LS Burger',   3.00,  'Burger',  10),
+  ('LS Cheeseburger',   3.50,  'Burger',  15),
+  ('LS Chicken Burger',   4.50,  'Burger',  20),
+  ('LS Double Deluxe Burger',   6.00,  'Burger',  30),
+  ('Fries',   1.20,  'Side',  3),
+  ('Onion Rings',   1.50,  'Side',  5),
+  ('Cola',  1.50,  'Drink',   5),
+  ('Lemonade',  1.50,  'Drink',   5),
+  ('Vanilla Shake',   2.00,  'Drink',   7),
+  ('Chocolate Shake',   2.00,  'Drink',   7),
+  ('Strawberry Shake',  2.00,  'Drink',   7);
+
+ex6
+# a one-to-many relationship exists between 'customers' and 'orders';
+# an order belongs to only ONE CUSTOMER; a customer can have MANY ORDERS
+
+DROP TABLE orders;
+
+CREATE TABLE orders (
+  id serial PRIMARY KEY,
+  order_status varchar(20),
+  customer_id int NOT NULL,
+  FOREIGN KEY (customer_id) REFERENCES customers(id) ON DELETE CASCADE
+);
+
+INSERT INTO orders (customer_id, order_status) VALUES
+  (2, 'In Progress'),
+  (1, 'Placed'),
+  (1, 'Complete'),
+  (3, 'Placed')
+;
+
+# a many-to-many relationship exists between 'orders' and 'products';
+# an order can contain MANY PRODUCTS; a product can be on MANY ORDERS
+# 'order_items' is the cross-ref table that links 'orders' and 'products'
+
+CREATE TABLE order_items (
+  id serial PRIMARY KEY,
+  order_id int NOT NULL,
+  product_id int NOT NULL,
+  FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+  FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+INSERT INTO order_items (order_id, product_id) VALUES
+  (1,3), (1,5), (1,6), (1,8),
+  (2,2), (2,5), (2,7),
+  (3,4), (3,2), (3,5), (3,5), (3,6), (3,10), (3,9),
+  (4,1), (4,5)
+;
+

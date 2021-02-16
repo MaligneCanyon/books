@@ -1,0 +1,13 @@
+names = ['bob', 'joe', 'susan', 'margaret']
+names['margaret'] = 'jody'
+
+TypeError: no implicit conversion of String into Integer
+  from (irb):2:in `[]='
+  from (irb):2
+  from /Users/username/.rvm/rubies/ruby-2.0.0-p353/bin/irb:12:in `<main>'
+
+# 'margaret' is an array value, not an array index, so names['margaret'] is
+# invalid; should be
+names[3] = 'jody'
+# or, more generally (and more convoluted),
+names[names.index('margaret')] = 'jody'

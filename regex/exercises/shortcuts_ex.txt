@@ -1,0 +1,21 @@
+1.
+/\s...\s/
+/\b...\s/ if delimited by whitespace at end of any 3 chars
+
+2.
+Doc is not delimited by whitespace at start of the 3 chars
+red is delimited by whitespace, but the start whitespace char is part of the 'big' match
+(blanks are "used up" when matched and can't be used again)
+box is delimited by '.' at end of the 3 chars
+Hup is delimited by '!' at end of the 3 chars
+2 3 is delimited by whitespace
+
+3.
+/\s\h\h\h\h\s/ # does not allow 0xhhhh-formatted numbers
+or
+/\s\h{4}\s/
+
+4.
+/[a-z][a-z][a-z]/i
+or
+/[a-z]{3}/i

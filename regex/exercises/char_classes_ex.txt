@@ -1,0 +1,46 @@
+1.
+/[Kks]/
+or
+/K|k|s/
+
+2.
+/[cb][aou]t/i
+
+3.
+/[0-9A-Ja-j]/
+or
+/[0-9a-j]/i
+
+4.
+str =
+"0x1234
+Too many XXXXXXXXXXxxxxxxXXXXXXXXXXXX to count.
+The quick brown fox jumps over the lazy dog
+THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"
+regex = /[a-wyz]/i
+
+count = 0
+str.each_char { |c| count += 1 if c =~ regex }
+p "str.size = #{str.size}, count = #{count}"
+
+5. tricky: match any char and match any letter are not equivalent statements
+
+6.
+/[^a-z]/i
+
+7.
+/(ABC|abc)/ matches the 3 sequential chars 'ABC' or 'abc'
+/[Aa][Bb][Cc]/ matches any 3 char sequence starting with A or a, then B or b, then C or c
+str = Abc, aBc, abC, ABc, AbC, or aBC should match the 2nd regex, but not the 1st
+
+8.
+/abc/i and /[Aa][Bb][Cc]/ are equiv
+
+9.
+/\[\^[0-9A-Za-z]-[0-9A-Za-z]\]/
+this is not exactly ideal: would match [^9-0] or [^0-a]
+
+/\[\^(a-z|0-9)\]/i
+is somewhat better, but only matches the exact strings given in the test case, i.e.
+[^a-z], [^0-9], and [^A-Z]
+

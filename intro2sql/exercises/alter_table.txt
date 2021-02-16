@@ -1,0 +1,51 @@
+ex1
+ALTER TABLE famous_people RENAME TO celebrities;
+
+ex2
+ALTER TABLE celebrities RENAME COLUMN name TO first_name;
+ALTER TABLE celebrities ALTER COLUMN first_name TYPE varchar(80);
+
+ex3
+ALTER TABLE celebrities ADD COLUMN last_name varchar(100) NOT NULL;
+
+ex4
+ALTER TABLE celebrities ALTER COLUMN date_of_birth TYPE date USING date_of_birth::date;
+ALTER TABLE celebrities ALTER COLUMN date_of_birth SET NOT NULL;
+
+# alternate syntax
+ALTER TABLE celebrities
+  ALTER COLUMN date_of_birth TYPE date USING date_of_birth::date,
+  ALTER COLUMN date_of_birth SET NOT NULL;
+
+ex5
+# can use 'numeric' instead of 'decimal'
+ALTER TABLE animals ALTER COLUMN max_weight_kg TYPE decimal(10,4);
+
+ex6
+# this doesn't work ...
+ALTER TABLE animals
+  ALTER COLUMN binomial_name DROP NOT NULL,
+  ALTER COLUMN binomial_name SET UNIQUE NOT NULL;
+
+# ... but this does
+ALTER TABLE animals ADD CONSTRAINT unique_binomial_name UNIQUE (binomial_name);
+
+# could do this too, w/o explicitly naming the constraint:
+ALTER TABLE animals ADD UNIQUE (binomial_name);
+
+ex7
+\c ls_burger
+ALTER TABLE orders
+  ADD COLUMN customer_email varchar(50),
+  ADD COLUMN customer_loyalty_points integer DEFAULT 0;
+
+ex8
+# can use 'DEFAULT 0' instead of 'DEFAULT 0.00'
+ALTER TABLE orders
+  ADD COLUMN burger_cost decimal(4,2) DEFAULT 0.00,
+  ADD COLUMN side_cost decimal(4,2) DEFAULT 0.00,
+  ADD COLUMN drink_cost decimal(4,2) DEFAULT 0.00;
+
+ex9
+ALTER TABLE orders
+  DROP order_total;

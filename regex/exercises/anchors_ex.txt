@@ -1,0 +1,20 @@
+1.
+/^The\b/
+Note: /\AThe\b/ does not work; \A matches the beginning of the str only (only finds the 1st occurence of 'The')
+
+2.
+/\bcat$/
+
+3.
+/\b[a-z][a-z][a-z]\b/i
+or
+/\b[a-z]{3}\b/i
+
+4.
+/^(A|The) [a-z][a-z][a-z][a-z] (dog|cat)$/i
+or
+/^(A|The) [a-z]{4} (dog|cat)$/i
+
+can't use
+/^(A|The) \w\w\w\w (dog|cat)$/i
+because they asked for a 4-letter (and not a 4-char) word

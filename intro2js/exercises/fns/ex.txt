@@ -1,0 +1,10 @@
+ex1.
+logs '1'
+foo() has no effect; the 'bar' declared in foo() is a dif entity, w/ local (function) scope
+
+ex5.
+nothing; the fn rtns before logging anything to the console
+
+ex6.
+nothing; console.log() is never called
+

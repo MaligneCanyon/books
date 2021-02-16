@@ -1,0 +1,2 @@
+- exeception handling is code which anticipates possible errors
+- prevents program from halting execution if an error is encountered

@@ -1,0 +1,44 @@
+ex1
+\c encyclopedia
+ALTER TABLE animals ADD COLUMN class varchar(100);
+UPDATE animals SET class = 'Aves';
+
+ex2
+ALTER TABLE animals
+  ADD COLUMN phylum varchar(100),
+  ADD COLUMN kingdom varchar(100);
+UPDATE animals SET phylum = 'Chordata', kingdom = 'Animalia';
+
+ex3
+ALTER TABLE countries ADD COLUMN continent varchar(50);
+# unfortunately, can't combine the next 3 statements ...
+UPDATE countries SET continent = 'Europe' WHERE name = 'France' OR name = 'Germany';
+UPDATE countries SET continent = 'Asia' WHERE name = 'Japan';
+UPDATE countries SET continent = 'North America' WHERE name = 'USA';
+
+ex4
+UPDATE celebrities SET deceased = true WHERE first_name = 'Elvis';
+ALTER TABLE celebrities ALTER COLUMN deceased SET NOT NULL;
+
+ex5
+SELECT * FROM celebrities WHERE last_name = 'Cruise'; -- test
+DELETE FROM celebrities WHERE last_name = 'Cruise';
+
+ex6
+ALTER TABLE celebrities RENAME TO singers;
+SELECT * FROM singers WHERE occupation NOT LIKE '_inger%'; -- test
+DELETE FROM singers WHERE occupation NOT LIKE '_inger%'; -- supports upper and lower case 's'
+
+ex7
+DELETE FROM countries;
+
+ex8
+\c ls_burger
+UPDATE orders SET drink = 'Lemonade' WHERE customer_name LIKE '%James%';
+
+ex9
+UPDATE orders SET side = 'Fries', side_cost = 0.99, customer_loyalty_points = 13
+  WHERE customer_name LIKE '%Aaron%';
+
+ex10
+UPDATE orders SET side_cost = 1.20 WHERE side = 'Fries';

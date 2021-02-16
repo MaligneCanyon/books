@@ -1,0 +1,2 @@
+- array elements are indexed by a sequential number
+- hash elements are indexed by a unique key (which can be a symbol, string, etc.)

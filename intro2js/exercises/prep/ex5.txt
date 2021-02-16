@@ -1,0 +1,4 @@
+substring: String prototype (instance) method
+create: Object static method
+fromCharCode: String static method
+slice: String, Array prototype methods

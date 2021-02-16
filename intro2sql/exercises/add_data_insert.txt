@@ -1,0 +1,63 @@
+ex1
+INSERT INTO countries (name, capital, population) VALUES
+  ('France', 'Paris', 67158000);
+
+ex2
+INSERT INTO countries (name, capital, population) VALUES 
+  ('USA', 'Washington DC', 325365000),
+  ('Germany', 'Berlin', 82349000),
+  ('Japan', 'Tokyo', 126672000);
+
+ex3
+INSERT INTO celebrities (first_name, occupation, date_of_birth, last_name) VALUES
+  ('Bruce', 'singer', 'Sep-23-1949', 'Springsteen');
+
+or omit the col names and supply data for every col:
+INSERT INTO celebrities VALUES
+  (DEFAULT, 'Bruce', 'singer', 'Sep-23-1949', false, 'Springsteen');
+
+ex4
+INSERT INTO celebrities (occupation, first_name, last_name, date_of_birth) VALUES
+  ('actress', 'Scarlett', 'Johansson', 'Nov-22-1984');
+
+ex5
+INSERT INTO celebrities (first_name, last_name, occupation, date_of_birth, deceased) VALUES
+  ('Frank', 'Sinatra', 'Singer, Actor', 'Dec-12-1915', true),
+  ('Tom', 'Cruise', 'Actor', 'Jul-03-1962', DEFAULT);
+
+ex6
+error msg for both rows; last_name must be spec'd due to NOT NULL constraint
+
+ex7
+ALTER TABLE celebrities ALTER COLUMN last_name DROP NOT NULL;
+INSERT INTO celebrities (first_name, occupation, date_of_birth, deceased) VALUES
+  ('Madonna', 'Singer, Actress', 'Aug-16-1958', false),
+  ('Prince', 'Singer, Songwriter, Musican, Actor', 'Jun-07-1958', true);
+
+ex8
+error msg; deceased must be a boolean value ? nope, NULL is valid
+INSERT INTO celebrities (first_name, last_name, occupation, date_of_birth, deceased) VALUES
+  ('Elvis', 'Presley', 'Singer, Musican, Actor', 'Jan-08-1935', NULL);
+
+ex9
+error msg; binomial_name must be unique (duplicate 'Columbidae Columbiformes')
+ALTER TABLE animals DROP CONSTRAINT unique_binomial_name;
+INSERT INTO animals (name, binomial_name, max_weight_kg, max_age_years, status) VALUES
+  ('Dove', 'Columbidae Columbiformes',  2,   15,  'LC'),
+  ('Golden Eagle', 'Aquila Chrysaetos',   6.35,  24,  'LC'),
+  ('Peregrine Falcon',  'Falco Peregrinus',  1.5,   15,  'LC'),
+  ('Pigeon',  'Columbidae Columbiformes',  2,   15,  'LC'),
+  ('Kakapo',  'Strigops habroptila',   4,   60,  'CR');
+
+ex10
+\c ls_burger
+\d orders
+INSERT INTO orders (customer_name, customer_email, burger, side, drink, customer_loyalty_points, burger_cost, side_cost, drink_cost) VALUES
+  ('James Bergman', 'james1998@email.com', 'LS Chicken Burger', 'Fries', 'Cola',
+  28, 4.50, 0.99, 1.50),
+  ('Natasha O''Shea', 'natasha@osheafamily.com', 'LS Cheeseburger', 'Fries', NULL,
+  18, 3.50, 0.99, 0.00),
+  ('Natasha O''Shea', 'natasha@osheafamily.com', 'LS Double Deluxe Burger', 'Onion Rings', 'Chocolate Shake',
+  42, 6.00, 1.50, 2.00),
+  ('Aaron Muller', NULL, 'LS Burger', NULL, NULL,
+  10, 3.00, 0.00, 0.00);

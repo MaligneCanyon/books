@@ -1,0 +1,6 @@
+hash1 = {shoes: "nike", "hat" => "adidas", :hoodie => true}
+hash2 = {"hat" => "adidas", :shoes => "nike", hoodie: true}
+
+=> "These hashes are the same!"
+# ':sym =>' and 'sym:' are equivalent
+# element order is not impt (in terms of equivalency) within a hash

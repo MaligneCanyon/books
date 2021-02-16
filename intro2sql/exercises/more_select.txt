@@ -1,0 +1,49 @@
+ex1
+\c encyclopedia
+SELECT * FROM countries LIMIT 1;
+
+ex2
+SELECT name FROM countries ORDER BY population DESC LIMIT 1;
+
+ex3
+SELECT name FROM countries ORDER BY population DESC LIMIT 1 OFFSET 1;
+
+ex4
+SELECT DISTINCT binomial_name FROM animals;
+
+ex5
+SELECT binomial_name FROM animals ORDER BY length(binomial_name) DESC LIMIT 1;
+
+ex6
+SELECT first_name FROM celebrities WHERE date_part('year', date_of_birth) = 1958;
+
+ex7
+SELECT max_age_years FROM animals ORDER BY max_age_years DESC LIMIT 1; # this works ...
+SELECT max(max_age_years) FROM animals; # ... but this is better !
+
+ex8
+SELECT avg(max_age_years) FROM animals;
+
+ex9
+SELECT count(id) FROM countries;
+
+ex10
+SELECT sum(population) FROM countries;
+
+ex11
+SELECT DISTINCT status, count(status) FROM animals GROUP BY status;
+
+ex12
+SELECT avg(burger_cost) FROM orders WHERE side = 'Fries';
+
+ex13
+SELECT min(side_cost) FROM orders WHERE side_cost > 0.00; # this works
+SELECT min(side_cost) FROM orders WHERE side IS NOT NULL; # this works too
+
+ex14
+# the following works if 'Fries' and 'Onion Rings' are the only sides
+SELECT side, count(side) FROM orders WHERE side IS NOT NULL GROUP BY side;
+# otherwise
+SELECT side, count(side) FROM ORDERS WHERE side = 'Fries' OR side = 'Onion Rings'
+  GROUP BY side;
+

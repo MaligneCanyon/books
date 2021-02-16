@@ -1,0 +1,30 @@
+# there is a one to many relationship btwn 'colors' and 'shapes';
+# a shape can only be ONE COLOR, a color can apply to MANY SHAPES
+
+createdb colors_shapes
+
+psql -d colors_shapes
+
+CREATE TABLE colors (
+  id serial PRIMARY KEY,
+  color varchar(20) NOT NULL
+);
+
+CREATE TABLE shapes (
+  id serial PRIMARY KEY,
+  color_id integer,
+  shape varchar(20),
+  FOREIGN KEY (color_id) REFERENCES colors(id) ON DELETE SET NULL
+);
+
+INSERT INTO colors (color) VALUES
+  ('Red'),
+  ('Blue'),
+  ('Orange'),
+  ('Green');
+
+INSERT INTO shapes (color_id, shape) VALUES
+  (1, 'Square'),
+  (1, 'Star'),
+  (2, 'Triangle'),
+  (4, 'Circle');

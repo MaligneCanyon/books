@@ -1,0 +1,2 @@
+# on line 1, 'execute' does not recognize 'block' as a valid param
+# must precede 'block' with '&' symbol, creating a valid reference to a Proc

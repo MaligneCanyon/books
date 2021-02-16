@@ -1,0 +1,21 @@
+1.
+/K/
+
+2.
+/H/i
+or
+/H|h/
+
+3.
+/dragon/
+
+4.
+/banana|orange|apple|strawberry/
+
+5.
+/,| /
+or
+/,|[ ]/
+
+6.
+/(blue|black)berry/

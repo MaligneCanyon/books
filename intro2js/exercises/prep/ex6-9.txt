@@ -1,0 +1,8 @@
+var or fn - index
+constructor fn - CatName
+invalid - snake_case
+var or fn - lazyDog
+invalid - quick_Fox
+invalid - 1stCharacter
+var or fn - operand2
+const - BIG_NUMBER

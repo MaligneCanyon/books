@@ -1,0 +1,16 @@
+1.
+see exercises/io/age.js
+
+3.
+- line 3 uses the assignment (and not an equality) operator
+- the conditional expr on line 3 is always truthy, and the conditional expr on line 7 is always falsey
+
+4.
+- the code doesn't produce an err (there's nothing wrong with it)
+- output is
+1
+2
+3
+4
+5
+

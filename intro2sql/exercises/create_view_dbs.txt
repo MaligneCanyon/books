@@ -1,0 +1,23 @@
+ex1
+> createdb database_one
+
+ex2
+> psql -d database_one
+
+ex3
+database_one=# CREATE DATABASE database_two;
+
+ex4
+database_one=# \c database_two
+
+ex5
+database_two=# \l
+
+ex6
+database_two=# \c sql_book
+sql_book=# DROP DATABASE database_two;
+
+ex7
+sql_book=# \q
+> dropdb database_one
+> dropdb ls_burger

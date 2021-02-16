@@ -1,0 +1,7 @@
+1.
+array1.length = 4, 3rd elem is init'd to undefined
+array2.length = 5; uninit'd elems still count towards length
+array3.length = 0; pseudo elems don't count towards length
+array4.length = 3; truncated
+array5.length = 101; uninit'd elems still count towards length
+
