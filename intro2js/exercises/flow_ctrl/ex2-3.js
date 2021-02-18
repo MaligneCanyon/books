@@ -1,6 +1,6 @@
 // function evenOrOdd (num) {
 let evenOrOdd = (num) => {
-  // if (parseInt(num) === num)
+  // if (parseInt(num, 10) === num)
   if (Number.isInteger(num))
     console.log((num % 2) ? 'odd' : 'even');
   else // could use a guard clause instead

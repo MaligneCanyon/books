@@ -18,6 +18,7 @@ function copyObj (obj, keys) { // if there is no keys arg passed in ...
         console.log(`key '${key}' not found`);
       }
     });
+
     return newObj;
   } else {
     // return Object.create(obj); // doesn't create native keys
@@ -27,7 +28,7 @@ function copyObj (obj, keys) { // if there is no keys arg passed in ...
 
 
 // Method #2
-xcopyObj = (objSource, objKeys = Object.keys(objSource)) => {
+let xcopyObj = (objSource, objKeys = Object.keys(objSource)) => {
   let objDest = {};
   objKeys.forEach(key => objDest[key] = objSource[key]);
   return objDest;

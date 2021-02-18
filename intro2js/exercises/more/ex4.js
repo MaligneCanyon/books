@@ -1,12 +1,9 @@
 function maxArrVal (arr) {
   let max = undefined;
   arr.forEach(elem => {
-    if (max) {
-      if (max < elem) max = elem;
-    } else {
-      max = elem;
-    }
+    if (!max || max < elem) max = elem;
   });
+
   return max;
 }
 
