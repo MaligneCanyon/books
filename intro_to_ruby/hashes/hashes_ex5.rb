@@ -7,4 +7,4 @@ h = {
   k6: 6
 }
 
-10.times { | v | p "hash contains #{v}? #{h.has_value?(v)}" }
+10.times { | v | p "hash contains #{v} ? #{h.has_value?(v)}" }

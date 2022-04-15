@@ -3,3 +3,4 @@ def multiply(x,y)
 end
 
 puts "#{multiply(2,8)}"
+puts multiply(2,8)

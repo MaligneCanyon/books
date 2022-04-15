@@ -11,6 +11,7 @@ let myArray = [
 //    'odd', even', 'even',
 //  ]
 
-console.log(
-  myArray.map(elem => (elem % 2) ? 'odd' : 'even')
-);
+console.log(myArray.map(elem => elem % 2 ? 'odd' : 'even'));
+
+// let isEven = elem => elem % 2 === 0;
+// console.log(myArray.map(elem => isEven(elem) ? 'even' : 'odd'));

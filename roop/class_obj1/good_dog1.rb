@@ -27,7 +27,6 @@ class GoodDog
 
   # method 3
   attr_accessor :name
-
 end
 
 sparky = GoodDog.new("Sparky")

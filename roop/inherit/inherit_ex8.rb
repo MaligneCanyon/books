@@ -14,7 +14,7 @@
 # 'sneaky' that calls the 'hi' method (w/o using 'self')
 class Person
   def sneaky
-    hi # can't use 'self' here, will generate err
+    hi # can't use 'self' here, will raise err
   end
 
   private

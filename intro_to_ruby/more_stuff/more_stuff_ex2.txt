@@ -1,2 +1,0 @@
-# outputs nothing
-# returns address or id of the proc

@@ -1,7 +1,7 @@
 # mix this module into the Truck subclass
 module Haulable
   def haul
-    "hauls lots of stuff"
+    'hauls lots of stuff'
   end
 end
 

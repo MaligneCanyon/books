@@ -9,7 +9,7 @@ class MyCar
 
   #ex2
   def to_s
-    "MyCar: #{color} #{year} #{model} #{speed} mph"
+    "MyCar: #{color}, #{year}, #{model}, #{speed} mph"
   end
 
 
@@ -83,7 +83,7 @@ car.spray_paint("black")
 car.info
 
 # ex1
-puts MyCar.mileage(50, 2)
+puts MyCar.mileage(50, 3)
 
 # ex2
 puts car

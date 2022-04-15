@@ -1,8 +1,16 @@
-def capitalize(str)
-  str.upcase! if str.length > 10 # convert longer strings to ALL CAPS
-  return str
+# def upcap(str)
+#   str.upcase! if str.length > 10 # wrong; mutates the str
+#   return str
+# end
+
+def upcap(str)
+  str.length > 10 ? str.upcase : str # rtn ALL CAPS vers of longer strs
 end
 
-puts capitalize("test")
-puts capitalize("a big test")
-puts capitalize("a really big test")
+str = "it's a long way to tipperary"
+puts upcap(str)
+puts str # not mutated
+
+puts upcap("test")
+puts upcap("a big test")
+puts upcap("a really big test")

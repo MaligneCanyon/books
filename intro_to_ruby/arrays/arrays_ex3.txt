@@ -1,6 +1,9 @@
-arr = [["test", "hello", "world"],["example", "mem"]]
-p arr[1][0]
+arr = [["test", "hello", "world"], ["example", "mem"]]
+
+arr[1][0]
 => "example"
 
 alt:
-arr.last.delete(arr.last.first)
+arr.last.first
+=> "example"
+

@@ -1,3 +1,3 @@
-# from ~/ruby/intro_to_ruby/preparations
+# from ~/launch/books/intro_to_ruby/prep
 cd ..
-rm -r preparations
+rm -r prep

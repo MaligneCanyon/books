@@ -8,6 +8,7 @@ end
 
 class BadDog < Animal
   def initialize(age, name)
+    # self.age = age # raises exception (no attr_writer method exists)
     @age = age
     @name = name # 'name' is initialized in the BadDog class
     super(name)  # 'name' is (re-)initialized in the Animal class

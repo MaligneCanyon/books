@@ -12,13 +12,14 @@ def range(x)
   else
     "out of range"
   end
-  puts "#{x} is " + ans
+  puts "#{x} is " << ans
 end
 
 loop do
   puts "enter an integer between 0 and 100, or type 'q' to quit"
   num = gets.chomp
-  if (num =~ /[0-9]/) # test for numerical input
+  # if (num =~ /[0-9]/) # test for numerical input
+  if (num =~ /\b[0-9]+\.?[0-9]*\b/) # test for numerical input
     range(num.to_i) # convert numerical input to an integer
   elsif (num == 'q') # quit program
     break

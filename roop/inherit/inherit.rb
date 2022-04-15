@@ -7,8 +7,8 @@ end
 class MyClass < MySuperClass
   attr_reader :name
 
-  def initialize(n)
-    @name = n
+  def initialize(name)
+    @name = name
   end
 
   def say_hi
@@ -16,10 +16,10 @@ class MyClass < MySuperClass
   end
 end
 
-bob = MyClass.new("Bob")
+bob = MyClass.new('Bob')
 bob.say_hi # Hi Bob
-bob.send(:say_hi) # same
-bob.send("say_hi") # same
+bob.send(:say_hi) # same result
+bob.send('say_hi') # same result
 
 p bob.is_a?(MyClass) # T
 p bob.is_a?(MySuperClass) # T

@@ -39,7 +39,7 @@ class GoodDog
   end
 
   def another_instance_method
-    puts "accessing the info method from w/i another_instance_method:"
+    puts 'accessing the info method from w/i another_instance_method:'
     # 'self' prefix not req'd here, but good idea for clarity
     puts self.info
   end

@@ -11,11 +11,11 @@ class GoodDog
   end
 end
 
-puts GoodDog.total_number_of_dogs   # => 0
+puts GoodDog.total_number_of_dogs # => 0
 
 dog1 = GoodDog.new
 dog2 = GoodDog.new
 
 #puts GoodDog.number_of_dogs # no method err
 #puts GoodDog.@@number_of_dogs # no method err
-puts GoodDog.total_number_of_dogs   # => 2
+puts GoodDog.total_number_of_dogs # => 2

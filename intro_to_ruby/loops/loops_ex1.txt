@@ -3,4 +3,4 @@ x.each do |a|
   a + 1
 end
 
-=> [1, 2, 3, 4, 5] # .each returns the un-mutated array
+=> [1, 2, 3, 4, 5] # .each returns the un-mutated (original) array

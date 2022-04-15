@@ -7,11 +7,17 @@ movie_hash = {
 movie_array = [] # init here, so that the array is visible w/i the blk below
 
 puts movie_hash
+
 #movie_hash.each do |title, year| # iterate over the hash
 movie_hash.each_value do |year| # iterate over the hash values
   puts year
   movie_array.push(year) # push the year into an array
 end
+
+puts
 print movie_array
-puts ''
+puts "\n\n"
 puts movie_array
+
+puts "\nalt:"
+puts movie_hash.values

@@ -1,13 +1,11 @@
-module Haulable
-  def haul
-    puts "hauls lots of stuff"
-  end
-end
-
 class Vehicle
   @@num_vehicles = 0
 
-  def self.total_vehicles
+  def initialize
+    @@num_vehicles += 1
+  end
+
+  def self.number_of_vehicles
     @@num_vehicles
   end
 
@@ -15,18 +13,32 @@ class Vehicle
     @@mileage = distance_travelled / fuel_consumed
     "#{@@mileage} miles per gallon"
   end
+end
+
+class Truck < Vehicle
+  CARGO_SPACE = 40 # square feet
+  # with no init method here, the superclass init method is used instead
+end
+
+class MyCar < Vehicle
+  CARGO_SPACE = 20 # cubic feet
 
   attr_reader :year, :model
   attr_accessor :speed, :on, :color
 
+  # we want to init vars specific to the MyCar class, in addition to
+  # performing the init in the Vehicle superclass
   def initialize(year, color, model)
-    @@num_vehicles += 1
-
     @year = year
     @color = color
     @model = model
     @speed = 0
     @on = true
+    super() # pass zero args to the superclass initialize method
+  end
+
+  def to_s
+    "MyCar: #{color} #{year} #{model} #{speed} mph"
   end
 
   def speed_up
@@ -63,31 +75,6 @@ class Vehicle
     self.color = hue
     puts "freshly painted #{color}"
   end
-
-  # inheritance ex6
-  def age
-    puts "the vehicle is #{private_age} year(s) old "
-  end
-
-  # inheritance ex6
-  private
-  def private_age
-    Time.now.year - year
-  end
-end
-
-class Truck < Vehicle
-  CARGO_SPACE = 40 # square feet
-
-  include Haulable
-end
-
-class MyCar < Vehicle
-  CARGO_SPACE = 20 # cubic feet
-
-  def to_s
-    "MyCar: #{color} #{year} #{model} #{speed} mph"
-  end
 end
 
 car = MyCar.new(2018, 'red', 'GTX')
@@ -114,26 +101,10 @@ car.info
 puts MyCar.mileage(50,2)
 puts car
 
-# inheritance ex2
-5.times { truck = Truck.new(2018, 'lime green', 'Tundra') } # note: 'truck' is not visible outside this blk
-puts "We have produced #{Vehicle.total_vehicles} vehicle(s)"
+5.times { Truck.new }
+puts "We have produced #{Vehicle.number_of_vehicles} vehicle(s)"
 
-# inheritance ex3
-truck = Truck.new(2018, 'lime green', 'Tundra')
-truck.haul
-
-# inheritance ex4
-puts "\n", Vehicle.ancestors
-puts "\n", MyCar.ancestors
-puts "\n", Truck.ancestors
-puts
-
-# inheritance ex5
-truck.info
-puts Vehicle.mileage(40,2)
-
-# inheritance ex6
-old_car = MyCar.new(1998, 'light blue', 'Escort')
-old_car.info
-old_car.age
-puts old_car.private_age # produces NoMethodError
+# although this works too, vehicles are from both the Truck class and the MyCar
+# class (counts trucks and cars)
+puts "We have produced #{Truck.number_of_vehicles} vehicle(s)"
+puts "We have produced #{MyCar.number_of_vehicles} vehicle(s)"

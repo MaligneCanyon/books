@@ -1,5 +1,6 @@
 1. '4' == 4 ? puts("TRUE") : puts("FALSE")
 "FALSE" # dif types
+
 2. x = 2
    if ((x * 3) / 2) == (4 + 4 - x - 3)
      puts "Did you get it right?"
@@ -7,6 +8,7 @@
      puts "Did you?"
    end
 "Did you get it right?" # 3 == 3
+
 3. y = 9
    x = 10
    if (x + 1) <= (y)

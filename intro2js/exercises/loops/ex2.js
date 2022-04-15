@@ -1,7 +1,7 @@
 // retrieve a +ve int from user input
 function getPositiveInt() {
   let rlSync = require('readline-sync');
-  let num = 0;
+  let num;
 
   while (true) {
     num = Number(rlSync.question("Enter a positive integer\n"));
@@ -13,7 +13,8 @@ function getPositiveInt() {
 
 // calc the factorial of a +ve int
 function factorial(num) {
-  for (result = 1; num > 1; num--)
+  let result = 1;
+  for (; num > 1; num--)
     result *= num;
   return result;
 }

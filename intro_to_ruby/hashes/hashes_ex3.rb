@@ -12,5 +12,5 @@ h.each_value { | v | p v }
 h.each { | k, v | p "#{k}: #{v}" }
 
 # alt:
-puts h.keys
+puts h.keys # implicitly calls .to_s
 puts h.values

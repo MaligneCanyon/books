@@ -17,12 +17,13 @@ factorial(7)
 factorial(8)
 
 # alt: move puts statement outside the factorial method
-# puts "#{factorial(8)}"
-puts "#{factorial(8)}"
+puts "#{factorial(9)}"
 
 # alt:
-# def factorial (num)
+# def factorial(x)
+#   print "#{x}! = "
 #   product = 1
-#   num.downto(1) {|v| product *= v}
-#   puts product
+#   x.downto(2) { |v| product *= v }
+#   puts "#{product}"
 # end
+# factorial(9)

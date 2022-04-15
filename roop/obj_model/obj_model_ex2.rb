@@ -1,4 +1,4 @@
-# a module is a container for related methods
+# a module is a container for related methods (and constants)
 # we use a module when we want code to be available to dif classes
 # we use a module by invoking the 'include' method w/i our class
 # and calling the method(s) in the module on our obj

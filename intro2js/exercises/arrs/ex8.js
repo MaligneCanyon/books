@@ -1,6 +1,6 @@
 function oddLengths(arr) {
   return arr.reduce((accum, elem) => {
-    return (elem.length % 2) ? accum.concat(elem.length) : accum;
+    return elem.length % 2 ? accum.concat(elem.length) : accum;
   }, []);
 }
 

@@ -10,7 +10,8 @@ class Student
     # dilema: can't use 'self' to call private method 'grade', so how do you
     #   ref the calling obj ?
     # solution: def 'grade' as protected rather than private
-    grade > other.grade # would raise err if 'grade' was private
+    # this.grade > other.grade # raises err if 'grade' is private OR protected
+    grade > other.grade # raises err if 'grade' is private
   end
 
   # private
@@ -21,7 +22,7 @@ end
 bob = Student.new("Bobby", 70)
 joe = Student.new("Joseph", 80)
 
-puts joe.name # works ok
-# puts joe.grade # raises a NoMethodError # Note: can still access grade using 'p joe'
+puts joe.name # this works
+# puts joe.grade # raises a NoMethodError
 puts "Well done!" if joe.better_grade_than?(bob)
-p joe
+p joe # Note: can still access grade using 'p joe'

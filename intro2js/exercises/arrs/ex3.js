@@ -9,7 +9,7 @@ let myArray = [
 //   subArray.forEach(function (elem) {
 //     if (elem % 2 === 0) console.log(elem);
 //   });
-// })
+// });
 
 // log all unique even values
 let newArray = [];
@@ -20,4 +20,4 @@ myArray.forEach(function (subArray) {
       console.log(elem);
     }
   });
-})
+});

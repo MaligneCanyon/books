@@ -1,6 +1,6 @@
-x = "hi there"
-=> "hi there"
-my_hash = {x: "some value"} # x: is a symbol
-=> {:x=>"some value"}
-my_hash2 = {x => "some value"} # x is a string
-=> {"hi there"=>"some value"}
+b = []
+=> []
+b.keys
+NoMethodError: undefined method `keys' for []:Array
+
+# B. There is no method called keys for Array objects

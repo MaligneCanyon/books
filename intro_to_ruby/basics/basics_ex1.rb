@@ -1,1 +1,1 @@
-p 'Kermit ' + 'Frog'
+p 'Kermit' << ' ' << 'Frog'

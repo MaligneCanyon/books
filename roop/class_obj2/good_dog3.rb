@@ -45,3 +45,4 @@ end
 # p sparky # (inspect) rtns class name and object id, plus values of instance vars
 
 puts GoodDog.what_i_am
+puts GoodDog.class

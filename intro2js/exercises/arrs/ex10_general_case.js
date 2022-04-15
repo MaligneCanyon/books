@@ -3,23 +3,22 @@
 //   - if the elem is an arr
 //     - call the fn (recursively)
 //   - else
-//     - if the elem is the str
+//     - if the elem is the target
 //       - return the ndx of the elem
 //       - break
 
-// find and rtn the ndx of a str w/i an arr
-function findElem(arr, str) {
+// find and rtn the ndx of a target elem w/i an arr
+function findElem(arr, target) {
   let found = "";
   let elem;
 
   for (let ndx = 0; ndx < arr.length; ndx++) {
     elem = arr[ndx];
-    // if (elem.length > 0 && typeof(elem) != 'string') { // found subarr
     if (Array.isArray(elem)) { // found subarr
-      found = findElem(elem, str); // call recursively
+      found = findElem(elem, target); // call recursively
       if (found) // found target in subarr; prepend the current ndx
         found = `[${ndx}]` + found;
-    } else if (elem === str) { // found target in current arr
+    } else if (elem === target) { // found target in current arr
       found += `[${ndx}]`;
     }
 

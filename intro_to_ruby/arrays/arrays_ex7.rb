@@ -1,11 +1,9 @@
-a = [2,4,6,8,10,12]
-b = [] # since b was initialized here ...
+arr1 = [ "bob", "sally", "jane" ]
+arr2 = [ 1, 2, 3 ]
 
-a.each { |val| b.push(val += 2) } # ... we can access it inside the block
-p a
-p b
+def print_arr(arr)
+  arr.each_with_index { |val, ndx| puts "#{ndx}: #{val}" }
+end
 
-# alt
-arr = [1,2,3,4,5,9]
-arr2 = arr.map {|v| v+2}
-p arr, arr2
+print_arr(arr1)
+print_arr(arr2)

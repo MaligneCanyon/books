@@ -1,0 +1,6 @@
+x = "hi there"
+=> "hi there"
+my_hash = {x: "some value"} # key x: is a symbol
+=> {:x=>"some value"}
+my_hash2 = {x => "some value"} # key x is a string
+=> {"hi there"=>"some value"}

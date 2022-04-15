@@ -1,12 +1,14 @@
 class Animal
   def a_public_method
-    "Will this work? " + self.a_protected_method
+    "Will this work? " + self.a_protected_method # this works
     # "Will this work? " + a_protected_method # this works too
   end
 
   def another_public_method
     # "Will this work? " + self.a_private_method # => NoMethodError
-    "Will this work? " + a_private_method # must call private methods w/o using 'self'
+    "Will this work? " + a_private_method # this works
+      # must call private methods w/o using 'self'
+      # => this is the only signif dif btwn protected & private methods ?
   end
 
   protected

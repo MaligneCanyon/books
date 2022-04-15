@@ -15,7 +15,7 @@ end
 
 loop do
   puts 'enter a four-digit integer from 1000 to 9999'
-  x = gets.to_i
+  x = gets.to_i # truncate fp nums
   if (x.is_a? Integer) && x.between?(1000, 9999)
     parse_num(x)
   else

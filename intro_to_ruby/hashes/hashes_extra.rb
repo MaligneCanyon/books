@@ -21,5 +21,4 @@ words.each do |word|
   # p result
 end
 
-result.each_value { | v | p v }
-# result.each { | k,v | p "#{k}:#{v}" }
+result.each { |k, v| puts "#{k}:#{v}" }

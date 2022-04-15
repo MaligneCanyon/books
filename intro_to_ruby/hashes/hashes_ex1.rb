@@ -5,8 +5,11 @@ family = {  uncles: ["bob", "joe", "steve"],
           }
 
 obj = family.select { |k, v| k == :sisters || k == :brothers }
-p obj # hash w/ :sisters and :brothers keys
+p obj # hsh w/ :sisters and :brothers keys
 obj = obj.values
-p obj # objay w/ sister and brother sub-arrays
+p obj # arr w/ sister and brother sub-arrs
 obj = obj.flatten
-p obj # array w/ sisters and brothers
+p obj # arr w/ sisters and brothers
+
+# alt:
+p family.select { |k, _| k == :sisters || k == :brothers }.values.flatten
